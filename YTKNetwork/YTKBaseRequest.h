@@ -335,6 +335,9 @@ typedef void(^YTKRequestCompletionBlock)(__kindof YTKBaseRequest *request);
 ///  This validator will be used to test if `responseStatusCode` is valid.
 - (BOOL)statusCodeValidator;
 
+/// HTTP methods for which serialized requests will encode parameters as a query string. `GET`, `HEAD`, and `DELETE` by default.
+- (nullable NSSet<NSString *> *)HTTPMethodsEncodingParametersInURI;
+
 @end
 
 NS_ASSUME_NONNULL_END

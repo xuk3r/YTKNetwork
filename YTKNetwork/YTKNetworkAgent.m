@@ -177,7 +177,10 @@
     AFConstructingBlock constructingBlock = [request constructingBodyBlock];
     AFURLSessionTaskProgressBlock uploadProgressBlock = [request uploadProgressBlock];
     AFHTTPRequestSerializer *requestSerializer = [self requestSerializerForRequest:request];
-
+    if (request.HTTPMethodsEncodingParametersInURI) {
+        requestSerializer.HTTPMethodsEncodingParametersInURI = request.HTTPMethodsEncodingParametersInURI;
+    }
+    
     switch (method) {
         case YTKRequestMethodGET:
             if (request.resumableDownloadPath) {
